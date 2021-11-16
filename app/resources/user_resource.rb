@@ -12,4 +12,7 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :movie_reviews,
+               resource: MovieResource
+
 end
