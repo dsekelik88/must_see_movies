@@ -12,7 +12,11 @@
 
       <dt>Poster</dt>
       <!-- Display poster_id start -->
-      <dd><%= review.poster_id %></dd>
+      <dd>
+        <% if @review.poster.present? %>
+          <%= link_to review.poster, review.poster %>
+        <% end %>
+      </dd>
       <!-- Display poster_id end -->
 
       <dt>Number of stars</dt>
@@ -22,7 +26,11 @@
 
       <dt>Movie</dt>
       <!-- Display movie_id start -->
-      <dd><%= review.movie_id %></dd>
+      <dd>
+        <% if @review.movie.present? %>
+          <%= link_to review.movie, review.movie %>
+        <% end %>
+      </dd>
       <!-- Display movie_id end -->
 
     </dl>
