@@ -1,7 +1,6 @@
 <% was_validated = review.errors.any? %>
 
 <%= form_with(model: review, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for review_description start -->
   <div class="form-group">
     <% review_description_class = "form-control" %>
     <% review_description_was_invalid = review.errors.include?(:review_description) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :review_description %>
-    <!-- Input for review_description start -->
     <%= f.text_area :review_description, class: review_description_class, placeholder: "Enter review description" %>
-    <!-- Input for review_description end -->
     <% if review_description_was_invalid %>
       <% review.errors.full_messages_for(:review_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for review_description end -->
-  <!-- Label and input for poster_id start -->
   <div class="form-group">
     <% poster_class = "form-control" %>
     <% poster_was_invalid = review.errors.include?(:poster) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :poster_id %>
-    <!-- Input for poster_id start -->
     <%= f.collection_select :poster_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for poster_id end -->
     <% if poster_was_invalid %>
       <% review.errors.full_messages_for(:poster).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for poster_id end -->
-  <!-- Label and input for number_of_stars start -->
   <div class="form-group">
     <% number_of_star_class = "form-control" %>
     <% number_of_star_was_invalid = review.errors.include?(:number_of_star) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :number_of_stars %>
-    <!-- Input for number_of_stars start -->
     <%= f.number_field :number_of_stars, class: number_of_star_class, placeholder: "Enter number of star" %>
-    <!-- Input for number_of_stars end -->
     <% if number_of_star_was_invalid %>
       <% review.errors.full_messages_for(:number_of_star).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for number_of_stars end -->
-  <!-- Label and input for movie_id start -->
   <div class="form-group">
     <% movie_class = "form-control" %>
     <% movie_was_invalid = review.errors.include?(:movie) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :movie_id %>
-    <!-- Input for movie_id start -->
     <%= f.collection_select :movie_id, Movie.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for movie_id end -->
     <% if movie_was_invalid %>
       <% review.errors.full_messages_for(:movie).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for movie_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
